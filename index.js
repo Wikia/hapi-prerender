@@ -37,8 +37,8 @@ exports.register = function (server, options, next) {
     var fullUrl = protocol + "://" + req.headers.host + Url.format(req.url);
 
     // Allow for URL rewriting before requesting the prerendered version
-    if (settings.rewriteUrl) {
-      fullUrl = settings.rewriteUrl(fullUrl);
+    if (settings.updateRequestedUrl) {
+      fullUrl = settings.updateRequestedUrl(fullUrl);
     }
 
     return prerenderUrl + forwardSlash + fullUrl;
