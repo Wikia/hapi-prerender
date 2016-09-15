@@ -102,7 +102,7 @@ exports.register = function (server, options, next) {
   }
 
   server.ext('onRequest', function (req, reply) {
-    if (!settings.shouldShowPrerenderedPage(req)) {
+    if (!settings.shouldPrerender(req)) {
       return reply.continue();
     }
 
